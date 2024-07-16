@@ -727,6 +727,7 @@ max-width: 100%;
 .review{
     padding: 1rem;
 }
+
 .review-images {
     margin-top: 2rem;
     display: flex;
@@ -773,6 +774,24 @@ max-width: 100%;
     transition: opacity 0.3s ease;
   
 }
+.star {
+    font-size: 28px; /* Adjust font size as needed */
+    color: gold; /* Set the color of the stars */
+    margin-bottom: 0.5rem; /* Space between stars and the image */
+    /* Ensure background is light */
+    display: inline-block; /* Ensure stars are inline with text */
+    padding: 0.2rem 0.5rem; /* Add padding for better appearance */
+    border-radius: 5px; /* Optional: Add rounded corners */
+}
+
+.review-image {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center align items horizontally */
+    text-align: center; /* Center align text */
+}
+
+
 
 .review-image:hover {
     transform: scale(1.05);
