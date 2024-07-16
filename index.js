@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     menuButton.innerHTML = '<span class="menu-icon"></span>';
     menuButton.style.color = '#FFC24B'; 
     menuButton.style.fontSize = '16px'; 
+    console.log(menuButton);
     
     const logo = document.querySelector('.logo');
     if (window.innerWidth <= 768 && logo) {
@@ -34,3 +35,17 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 });
+
+// Assume you have a way to determine which item is active
+const shopItems = document.querySelectorAll('.shop-item');
+
+shopItems.forEach(item => {
+    item.addEventListener('click', () => {
+        // Remove active class from all items
+        shopItems.forEach(i => i.classList.remove('active'));
+
+        // Add active class to the clicked item
+        item.classList.add('active');
+    });
+});
+

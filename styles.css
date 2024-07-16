@@ -265,6 +265,7 @@ max-width: 100%;
 /* content styles , about us  */
 
 .content-section {
+    margin-top: 3rem;
     padding: 2rem;
     text-align: center;
 }
@@ -366,6 +367,7 @@ max-width: 100%;
 /* products stylings */
 
 .products {
+    margin-top: 3rem;
     padding: 2rem;
     text-align: center;
     color: var(--light-golden);
@@ -439,10 +441,10 @@ max-width: 100%;
 
 
 .shop {
+    margin-top: 3rem;
     padding: 2rem;
     text-align: center;
     color: var(--light-golden);
-    margin: 1rem;
 }
 
 .shop-image {
@@ -471,30 +473,35 @@ max-width: 100%;
 }
 
 
-
 .shop-item {
     flex: 0 0 auto;
     width: 800px;
-    background-color: #555043e1;
-    border: transparent;
+    background-color: #555043e1; /* Make sure this color is set correctly */
+    border: 1px solid var(--golden);
     border-radius: 25px;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     color: #FFC24B;
     transition: transform 0.3s ease, filter 0.3s ease;
-    box-sizing: border-box;
     display: flex;
     align-items: center;
-    
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    filter: blur(2px); /* Add a blur effect for non-active items */
 }
+
+.shop-item.active {
+    filter: none; /* Remove blur for the active item */
+    transform: scale(1.05); /* Optionally scale the active item to make it stand out */
+}
+
 
 .shop-item:not(:first-child) {
     filter: blur(4px);
 }
 
 .shop-item:hover {
-    transform: scale(1.05);
-    filter: none;/
+    transform: scale(0.95);
+    filter: none;
 }
 
 .shop-item-heading {
@@ -506,6 +513,8 @@ max-width: 100%;
 }
 
 .shop-item-description {
+    padding: 1rem;
+    text-align: left;
     color: #FFF9C0;
     font-family: Sahitya, serif;
     font-size: 14px;
@@ -531,6 +540,7 @@ max-width: 100%;
 }
 
 .shop-item-size {
+    width: 100%;
     font-family: Sahitya, serif;
     font-size: 14px;
     padding: 8px;
@@ -554,8 +564,40 @@ max-width: 100%;
 }
 
 
+@media (max-width: 767px) {
+    .shop-container {
+        display: flex;
+        overflow-x: auto; /* Enable horizontal scrolling */
+        gap: 0.5rem; /* Adjust gap for smaller devices */
+        padding: 0.5rem; /* Adjust padding for smaller devices */
+        width: 100%;
+        box-sizing: border-box;
+    }
+    .shop-item-title{
+        /* text-align: left; */
+        text-align: center;
+    }
+
+    .shop-item {
+        text-align: left;
+        flex: 0 0 auto;
+        min-width: 100%; /* Ensure full width on smaller devices */
+        margin-bottom: 1rem; /* Add spacing between items */
+        filter: none; /* Ensure no blur effect on smaller devices */
+    }
+
+    .shop-item.active {
+        transform: none; /* Remove scaling effect for the active item */
+    }
+
+    .shop-item-heading {
+        font-size: 14px; 
+    }
+}
+
 
 .gallery {
+    margin-top: 3rem;
     padding: 1rem;
     text-align: center;
     color: var(--light-golden);
@@ -565,7 +607,7 @@ max-width: 100%;
 .gallery-images {
     margin-top: 2rem;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-wrap: wrap;
     gap: 25px;
 }
@@ -605,6 +647,8 @@ max-width: 100%;
     .image{
         margin-top: 24px;
         height: 1;
+        width: 100%;
+        margin: my;
     }
     .beauty-content > * {
         width: 100%;
@@ -641,6 +685,18 @@ max-width: 100%;
     .video-p {
         font-size: 0.9rem;
     }
+    .email-input {
+        width: 100%;
+        padding: 1rem;
+    }
+    .content-section,.products,.shop,.gallery {
+        padding: 1rem;
+        margin-inline: 0;
+    }
+    .contact{
+        padding: 1rem;
+        margin: 0;
+    }
 }
 .beauty-content img {
     max-width: 100%;
@@ -659,22 +715,30 @@ max-width: 100%;
     padding: 0 1rem; /* Adjust padding as needed */
     text-align: left;
 }
+.beauty-content p {
+    width: 50%;
+    padding: 0 1rem; /* Adjust padding as needed */
+    text-align: left;
+    align-self: center;
+}
 
 /* Media Query for smaller devices */
 
-
+.review{
+    padding: 1rem;
+}
 .review-images {
     margin-top: 2rem;
     display: flex;
     flex-wrap: wrap;
-    gap: 25px;
+    gap: 10px;
     padding-inline: 20px; /* Consider using padding-left and padding-right separately for better compatibility */
     justify-content: space-around; /* Center items horizontally with space around them */
 }
 
 .review-image {
     position: relative;
-    width: calc(33.33% - 25px); /* Three items per row with gap */
+    width: calc(50% - 25px); /* Three items per row with gap */
     max-width: 200px; /* Max width for larger screens */
     height: 200px;
     border-radius: 50%;
@@ -722,10 +786,10 @@ max-width: 100%;
 
 
 .contact {
+    margin-top: 3rem;
     padding: 2rem;
     text-align: center;
     color: var(--light-golden);
-    margin: 1rem;
 }
 
 .title {
@@ -792,6 +856,9 @@ max-width: 100%;
 }
 
 .subscribe-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     margin-top: 1rem;
     padding: 0.5rem 1rem;
     font-size: 1rem;
@@ -800,12 +867,9 @@ max-width: 100%;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    border: 1px solid var(--golden);
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    
-}
 
 
 .subscribe-button:hover {
